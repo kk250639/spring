@@ -8,8 +8,8 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class Controller02 {
 
-    @RequestMapping(value="/main2/sub1", params = "name")
-    public void sub1(WebRequest request){
+    @RequestMapping(value = "/main2/sub1", params = "name")
+    public void sub1(WebRequest request) {
         // header 정보
         request.getHeader("User-Agent");
         System.out.println("Controller02.sub1");
@@ -18,14 +18,14 @@ public class Controller02 {
     // /main2/sub2?name&address
     // ? : query string
     // query string : name1=value1&name2=value2
-    @RequestMapping(value = "/main2/sub2", params = {"name","address"})
-    public void sub2(WebRequest request){
+    @RequestMapping(value = "/main2/sub2", params = {"name", "address"})
+    public void sub2(WebRequest request) {
         System.out.println("Controller02.sub2");
     }
 
     // /main2/sub3?name=musk
     @RequestMapping(value = "/main2/sub3", params = "name")
-    public void sub3(WebRequest request){
+    public void sub3(WebRequest request) {
         String name = request.getParameter("name");
         System.out.println("name = " + name);
         System.out.println("Controller02.sub2");
@@ -33,8 +33,8 @@ public class Controller02 {
 
     // /main2/sub3?address=seoul
     // /main2/sub3?address=jeju
-    @RequestMapping(value="/main2/sub3",params = "address")
-    public void sub4(WebRequest request){
+    @RequestMapping(value = "/main2/sub3", params = "address")
+    public void sub4(WebRequest request) {
         String address = request.getParameter("address");
         System.out.println("address = " + address);
         System.out.println("Controller02.sub3");
@@ -51,7 +51,23 @@ public class Controller02 {
 //    }
 
     @RequestMapping("/main2/sub5")
-    public void sub5(@RequestParam("email") String str){
+    public void sub5(@RequestParam("email") String str) {
         System.out.println("str = " + str);
     }
+
+    // /main2/sub6?email=yahoo&age=55
+    @RequestMapping(value = "/main2/sub6", params = {"email", "age"})
+    public void sub6(@RequestParam("email") String email,
+                     @RequestParam("age") String age) {
+        System.out.println("email = " + email + ", age = " + age);
+    }
+
+    // /main2/sub6?email=yahoo&age=55
+    @RequestMapping("/main2/sub7")
+    public void sub7(@RequestParam("email") String email,
+                     @RequestParam("age") String age) {
+        System.out.println("email = " + email + ", age = " + age);
+    }
+
+
 }
