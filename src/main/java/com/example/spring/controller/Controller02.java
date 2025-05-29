@@ -10,6 +10,8 @@ import static java.lang.Integer.parseInt;
 @Controller
 public class Controller02 {
 
+    //hostaddress:port/path/path?qs
+
     @RequestMapping(value = "/main2/sub1", params = "name")
     public void sub1(WebRequest request) {
         // header 정보
@@ -132,7 +134,15 @@ public class Controller02 {
 
     // 연습 : 아래 URL로 요청 올 때 적절히 처리하는 메소드 작성
     // /main2/sub14?email=gmail&score=88.8&married=true
-//    /main2/sub14?score=88.8&married=true
+    // /main2/sub14?score=88.8&married=true
+    @RequestMapping("/main2/sub14")
+    public void sub14(@RequestParam(required = false, defaultValue = "") String email,
+                      Double score, Boolean merried) {
+        System.out.println("email = " + email);
+        System.out.println("score = " + score);
+        System.out.println("married = " + merried);
+    }
+
 
     // 값이 존재하지 않을 때 기본 값을 줄 수 있음
 
