@@ -1,6 +1,7 @@
 package com.example.spring.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,7 +37,7 @@ public class Controller04 {
             case "울릉도" -> "바람 많이 붐";
             default -> "알 수 없음";
         };
-        String htmlcode = """
+        String htmlCode = """
                 <!DOCTYPE html>
                 <html>
                 <body>
@@ -47,7 +48,7 @@ public class Controller04 {
                 </html>
                 
                 """;
-        return htmlcode;
+        return htmlCode;
     }
 
     @RequestMapping("sub3")
@@ -71,5 +72,46 @@ public class Controller04 {
     @RequestMapping("sub4")
     public String sub4() {
         return "main4/sub4";
+    }
+
+    @RequestMapping("sub5")
+    public String sub5(Model model) {
+        // 1. 요청 분석/가공
+        // 2. 요청 처리(business logic)
+        // 3. 결과를 Model에 담기
+        model.addAttribute("name1","결과 값1");
+        model.addAttribute("name2","또다른 결과");
+        // 4. view로 forwarding
+
+        return "main4/sub5";
+    }
+
+    // /main4/sub6 으로 요청 오면
+    // templates/main4/sub6.html이 응답 되도록 작성
+    // request handler method 작성
+    @RequestMapping("sub6")
+    public String sub6(Model model) {
+
+        // model attribute : model에 넣은 값(객체)
+        model.addAttribute("name","kk");
+        model.addAttribute("address","seoul");
+        model.addAttribute("email","chesyeo@gmail.com");
+
+        return "main4/sub6";
+    }
+
+    @RequestMapping("sub7")
+    public String sub7(Model model) {
+        model.addAttribute("age",55);
+        model.addAttribute("score",97.54);
+        model.addAttribute("school","ㅅㅇㄷ");
+        model.addAttribute("city","신림동");
+        return "main4/sub7";
+    }
+
+    @RequestMapping("sub8")
+    public String sub8(Model model) {
+        model.addAttribute("number","1234567");
+        return "main4/sub8";
     }
 }

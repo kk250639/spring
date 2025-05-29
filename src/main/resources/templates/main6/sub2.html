@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List</h1>
+<h2 th:each="ai : ${aiList}" th:text="${ai}">Lorem ipsum dolor.</h2>
+<hr>
+<h2 th:each="elem : ${mySet}" th:text="${elem}">Lorem ipsum dolor.</h2>
+<hr>
+<h2 th:each="ai : ${aiList}">
+    <span th:text="${ai}">여기는 span</span>
+</h2>
+
+</body>
+</html>
