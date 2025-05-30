@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
+import java.util.Arrays;
 
 import static java.lang.Integer.parseInt;
 
@@ -137,17 +138,33 @@ public class Controller02 {
     // /main2/sub14?score=88.8&married=true
     @RequestMapping("/main2/sub14")
     public void sub14(@RequestParam(required = false, defaultValue = "") String email,
-                      Double score, Boolean merried) {
+                      Double score, Boolean married) {
         System.out.println("email = " + email);
         System.out.println("score = " + score);
-        System.out.println("married = " + merried);
+        System.out.println("married = " + married);
     }
 
 
+    // 값이 존재하지 않을 때 기본 값을 줄 수 있음 email, score, married
+    @RequestMapping("/main2/sub15")
+    public void sub15(@RequestParam(required = false,defaultValue ="") String email,
+                      @RequestParam(required = false,defaultValue ="0.0") Double score,
+                      @RequestParam(required = false,defaultValue ="false") Boolean married) {
+        System.out.println("email = " + email);
+        System.out.println("score = " + score);
+        System.out.println("married = " + married);
+    }
     // 값이 존재하지 않을 때 기본 값을 줄 수 있음
+    // -> required 는 false로 세팅됨 email, score, married
+    @RequestMapping("main2/sub16")
+    public void sub16(@RequestParam(defaultValue = "") String email,
+                      @RequestParam(defaultValue = "0.0") Double score,
+                      @RequestParam(defaultValue = "false") Boolean married) {
+        System.out.println("email = " + email);
+        System.out.println("score = " + score);
+        System.out.println("married = " + married);
 
-    // 값이 존재하지 않을 때 기본 값을 줄 수 있음
-    // -> required 는 false로 세팅됨
+    }
 
     // 연습 : 아래 조건 만족하는 메소드 작성해보세요.
     // /main2/sub17?city=seoul&home=jeju&age=33
@@ -158,19 +175,37 @@ public class Controller02 {
     // city 기본값 ""
     // home 기본값 ""
     // age 기본값 "0"
+    @RequestMapping("main2/sub17")
+    public void sub17(@RequestParam(defaultValue = "") String city,
+                      @RequestParam(defaultValue = "") String home,
+                      @RequestParam(defaultValue = "0") Integer age) {
+        System.out.println("city = " + city);
+        System.out.println("home = " + home);
+        System.out.println("age = " + age);
+    }
 
     // 하나의 request parameter(요청 파라미터, 요청 변수)가 여러 값일 때
     // /main2/sub18?city=seoul&city=jeju&city=busan
 //    /main2/sub18?city=seoul&city=jeju
 //    /main2/sub18?city=seoul
 //    /main2/sub18?
+    @RequestMapping("/main2/sub18")
+    public void sub18(String[] city){
+        System.out.println("Arrays.toString(city) = " + Arrays.toString(city));
+    }
+
 
     // 연습: 아래 URL로 요청 올 때 일하는 메소드 완성
     // /main2/sub20?country=korean&score=90&score=80&score=70
 
+
     // /main2/sub21?city=서울&email=gmail&address=신촌&age=88&score=98&married=true
+
 
     // /main2/sub22?city=서울&email=gmail&address=신촌&age=88&score=98&married=true
 
+
     // /main2/sub23?city=서울&email=gmail&address=신촌&age=88&score=98&score=87&score=76&married=true
+
+    
 }

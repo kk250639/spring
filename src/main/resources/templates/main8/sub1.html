@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .big-text {
+            font-size: 9pt;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>몸무게</th>
+        <th>이름</th>
+        <th>결혼</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${student}">
+        <td th:text="${student.studentNumber}"></td>
+        <td th:text="${student.weight}"></td>
+        <td th:text="${student.info}"></td>
+        <td th:text="${student.married}" th:class="${student.married} ? 'pink' : 'gray'"></td>
+    </tr>
+    </tbody>
+</table>
+<!--th:attrappend : 기존 값에 이어쓰기-->
+<h3 class="big-text" th:classappend="'pink'"></h3>
+<h3 class="big-text" th:attrappend="class=' pink'"></h3>
+<h3 class="big-text" th:class="'pink'">Lorem.</h3>
+<h3 title="hello" th:attrappend="title='bye'">Lorem.</h3>
+<!--&lt;!&ndash;연습 : tiger.jpg를 출력하는 코드&ndash;&gt;-->
+<!--<img src="../../static/images/tirger.jpg" alt="호랑이" th:src="@{/images/tiger.jpg}"-->
+
+<!--<img src="../..static/images/shark.jpg" alt="상어" th:src="@{/images/shark.jpg}" th:alt=")-->
+
+<!--     -->
+
+<!--&lt;!&ndash;<h3 title="hello"&ndash;&gt;-->
+<!--&lt;!&ndash;    th.attr="class='xyz',abc='def,title='bye'">Lorem.</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--&lt;!&ndash;th:attr&ndash;&gt;-->
+<!--&lt;!&ndash;: html element의 attribute를 적용하는 방법&ndash;&gt;-->
+
+<!--&lt;!&ndash;html element의 attribute 를 적용하는 방법&ndash;&gt;-->
+<!--<h3 title="hello" th.attr="class='xyz'">Lorem.</h3>-->
+<!--<h3 title="hello" th.attr="class='xyz',abc='def">Lorem.</h3>-->
+<!--<h3 title="hello" th.attr="class='xyz',abc='def,title='bye'">Lorem.</h3>-->
+
+<!--<hr>-->
+<!--<h3 th:text="'hello'">Lorem.</h3>-->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--산출연산-->
+<!--비교연산-->
+<!--person.number 는 98-->
+<h1 th.text="${person.number 100}"></h1>
+<h1 th.text="${person.number lt 100}"></h1>
+<h1 th.text="${person.number ge 100}"></h1>
+<h1 th.text="${person.number le 100}"></h1>
+<h1 th.text="${person.number sq 100}"></h1>
+<h1 th.text="${person.number ne 100}"></h1>
+
+<!--조건연산-->
+<h1 th:text="${person.number >100 ? '100보다 큼' : '100보다 크지 않다.'}"></h1>
+<h1 th:text="${person.number > 100} ? '100보다 큼'"></h1>
+<!--조건연산에서 false 부문을 생략할 수 있음-->
+<h1></h1>
+
+default exprssion (?:) : 값이 없으면(null)이 기본값을 사용
+<h1 th:text="${person.number >100 ?: '100보다 크지 않다.'}"></h1>
+
+<!--elvis operator ?:-->
+</body>
+</html>
