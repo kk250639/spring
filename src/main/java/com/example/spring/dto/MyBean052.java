@@ -8,4 +8,5 @@ public class MyBean052 {
     private Double score;
     private Double height;
     private String nickName;
+
 }

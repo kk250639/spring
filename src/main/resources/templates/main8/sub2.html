@@ -10,9 +10,11 @@
         .bold {
             font-weight: bold;
         }
+
     </style>
 </head>
 <body>
+
 <table>
     <thead>
     <tr>
@@ -22,10 +24,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="list : ${myList}">
-        <td th:text="${list.name}" th:class="italic"></td>
-        <td th:text="${list.birthDate}" th:class="italic"></td>
-        <td th:text="${list.price}" class="italic" th:classappend="${list.price > 5000} ? 'bold' : ''"></td>
+    <tr th:each="item :${myList}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.birthDate}"></td>
+        <td
+            class="italic"
+            th:text="${item.price}"
+            th:classappend="${item.price >= 5000} ? 'bold'"></td>
     </tr>
     </tbody>
 </table>

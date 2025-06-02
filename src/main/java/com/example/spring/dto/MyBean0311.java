@@ -6,6 +6,6 @@ import java.util.List;
 
 @Data
 public class MyBean0311 {
-    public List<String> hobby;
-    public List<Double> score;
+    private List<String> hobby;
+    private List<Double> score;
 }

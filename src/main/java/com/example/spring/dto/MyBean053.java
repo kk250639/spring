@@ -11,5 +11,5 @@ public class MyBean053 {
     private Integer studentNumber;
     private Double weight;
     private String info;
-    private boolean married;
+    private Boolean married;
 }

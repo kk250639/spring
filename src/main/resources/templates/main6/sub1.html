@@ -7,17 +7,23 @@
 <body>
 <h1>list</h1>
 <h2 th:text="${list[0]}">Lorem.</h2>
-<h2 th:text="${list[1]}">Eveniet!</h2>
-<h2 th:text="${list[2]}">Voluptatibus!</h2>
+<h2 th:text="${list[1]}">Placeat.</h2>
+<h2 th:text="${list[2]}">Cumque!</h2>
 
 <hr>
 <h1>set</h1>
 <h2 th:text="${cars[0]}">Lorem.</h2>
-<h2 th:text="${cars[1]}">Ipsam.</h2>
-<h2 th:text="${cars[2]}">Aliquid.</h2>
+<h2 th:text="${cars[1]}">Quidem.</h2>
+<h2 th:text="${cars[2]}">Obcaecati.</h2>
+
 <hr>
 <!-- th:each -->
-<h1>each 사용</h1>
+<h1>Set 에서 each 사용</h1>
 <h2 th:each="car : ${cars}" th:text="${car}">Lorem.</h2>
+
+<hr>
+
+<h1>List 에서 each 사용</h1>
+<h2 th:each="item :${list}" th:text="${item}">Lorem.</h2>
 </body>
 </html>

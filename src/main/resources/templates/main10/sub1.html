@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>/main10/sub1</h3>
+<form th:action="@{/main10/sub2}" method="post">
+    <div>
+        <label for="input3">암호</label>
+        <input type="password" name="name" value="trump" id="input3">
+    </div>
+    <div>
+        <label for="input4">도시</label>
+        <input type="text" name="city", value = "seoul" id="input4">
+    </div>
+    <input type="submit" value="전송">
+</form>
+<!-- method 속성 : request parameter가 어떤 방법으로 전송될 지 결정
+ get 방식 (기본값) : request parameter 가 주소에 ㅜㅌ어서 전송
+ - 사용자에게 노출
+ - 길이에 제한이 이음
+ -->
+
+<!--post 방식 : request parameter 가 request message 몸통(body)에 붙어서 전송-->
+<!-- - 사용자에게 노출x-->
+<!-- - 길이에 제한-->
+<form th:action="@{/main10/sub1}" method="get">
+    <div>
+        <label for="input2">이름</label>
+        <input type="password" name="name" value="trump" id="input2">
+    </div>
+    <input type="submit" value="전송">
+</form>
+<hr>
+<form th:action="@{/main10/sub1}">
+    <div>
+        <label for="input1">이름</label>
+        <input type="text" name="name" value="trump" id="input1">
+    </div>
+    <input type="submit" value="전송">
+</form>
+</body>
+</html>

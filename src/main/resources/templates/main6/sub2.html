@@ -5,14 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<h1>List</h1>
-<h2 th:each="ai : ${aiList}" th:text="${ai}">Lorem ipsum dolor.</h2>
+<h2 th:each="ai : ${aiList}" th:text="${ai}">Lorem.</h2>
 <hr>
-<h2 th:each="elem : ${mySet}" th:text="${elem}">Lorem ipsum dolor.</h2>
+<h2 th:each="elem : ${mySet}" th:text="${elem}">fruit</h2>
 <hr>
 <h2 th:each="ai : ${aiList}">
-    <span th:text="${ai}">여기는 span</span>
-</h2>
 
+    <span th:text="${ai}">여기는 span</span>
+
+</h2>
 </body>
 </html>
