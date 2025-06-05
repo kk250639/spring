@@ -11,6 +11,7 @@ public class Controller09 {
 
     @RequestMapping("sub1")
     public String sub1() {
+
         return "main9/sub1";
     }
 
@@ -25,14 +26,16 @@ public class Controller09 {
     }
 
     @RequestMapping("sub3")
-    public String sub3(String email, boolean married, String city, String team) {
-
+    public String sub3(String email,
+                       Boolean married,
+                       String team,
+                       String city) {
         System.out.println("email = " + email);
         System.out.println("married = " + married);
-        System.out.println("city = " + city);
         System.out.println("team = " + team);
-
+        System.out.println("city = " + city);
         return "main9/sub3";
+
     }
 
     @RequestMapping("sub4")
@@ -44,31 +47,16 @@ public class Controller09 {
     public String sub5(String keyword, String email) {
         System.out.println("keyword = " + keyword);
         System.out.println("email = " + email);
-
         return "main9/sub5";
     }
 
     @RequestMapping("sub6")
     public String sub6(String address, Integer age, String city) {
-
         System.out.println("address = " + address);
         System.out.println("age = " + age);
         System.out.println("city = " + city);
-
         return "main9/sub6";
-    }
 
-    @RequestMapping("sub7")
-    public String sub7() {
-        return "main9/sub7";
-    }
-    @RequestMapping
-    public String sub8() {
-        return "main9/sub8";
-    }
-    @RequestMapping("sub9")
-    public String sub9() {
-        return "main9/sub9";
     }
 
     @RequestMapping("sub13")
@@ -76,7 +64,8 @@ public class Controller09 {
                         Integer age,
                         Double score,
                         String[] fruits,
-                        boolean accepted) {
+                        Boolean accepted) {
+
         System.out.println("city = " + city);
         System.out.println("age = " + age);
         System.out.println("score = " + score);
@@ -85,4 +74,3 @@ public class Controller09 {
         return "main9/sub13";
     }
 }
-

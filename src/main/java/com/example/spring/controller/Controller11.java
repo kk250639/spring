@@ -75,7 +75,7 @@ public class Controller11 {
         return "main11/sub2";
     }
 
-    @GetMapping("sub4")
+    @GetMapping("sub3")
     public String sub5(HttpSession session, Model model) {
 
         double random = Math.random();
@@ -87,6 +87,6 @@ public class Controller11 {
                 Map.of("name", "길동", "address", "서울", "age", 98));
         // 연습 : 길동, 서울, 98 을 sub3.html에서 출력하기
 
-        return "main11/sub4";
+        return "main11/sub3";
     }
 }

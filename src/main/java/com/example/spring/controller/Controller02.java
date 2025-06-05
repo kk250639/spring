@@ -3,6 +3,7 @@ package com.example.spring.controller;
 import org.apache.catalina.connector.RequestFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
@@ -10,6 +11,7 @@ import org.springframework.web.context.request.async.StandardServletAsyncWebRequ
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Controller
