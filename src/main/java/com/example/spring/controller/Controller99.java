@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping("/main99")   // @RequestMapping : path에 해당하는 메소드 호출
 public class Controller99 {     // 모든 메소드의 경로 앞 부분에 적용
@@ -37,4 +39,13 @@ public class Controller99 {     // 모든 메소드의 경로 앞 부분에 적�
         System.out.println("star = " + star);
         System.out.println("year = " + year);
     }
+
+    @RequestMapping("/sub5")
+    public void sub5(@RequestParam Map<String, Object> params) {
+        for (var entry : params.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+
+    }
+
 }
