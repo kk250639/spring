@@ -1,7 +1,7 @@
 package com.example.spring.controller;
 
 import com.example.spring.dto.CustomerDto;
-import com.example.spring.dto.ProductsDto;
+import com.example.spring.dto.ProductDto;
 import com.example.spring.dto.SupplierDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -432,7 +432,7 @@ public class Controller13 {
             CustomerDto dto = new CustomerDto();
             dto.setId(customerID);
             dto.setName(customerName);
-            dto.setContactName(contactName);
+            dto.setContact(contactName);
             dto.setAddress(address);
             dto.setCity(city);
             dto.setPostalCode(postalCode);
@@ -463,9 +463,9 @@ public class Controller13 {
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
 
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -503,9 +503,9 @@ public class Controller13 {
         // 실행
         ResultSet resultSet = statement.executeQuery();
 
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -548,9 +548,9 @@ public class Controller13 {
         // 실행
         ResultSet resultSet = statement.executeQuery();
 
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -589,9 +589,9 @@ public class Controller13 {
         statement.setInt(1, categoryId);
 
         ResultSet resultSet = statement.executeQuery();
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -625,9 +625,9 @@ public class Controller13 {
         statement.setDouble(1, price);
         statement.setInt(2, categoryId);
         ResultSet resultSet = statement.executeQuery();
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -667,9 +667,9 @@ public class Controller13 {
         statement.setDouble(1, min);
         statement.setDouble(2, max);
         ResultSet resultSet = statement.executeQuery();
-        var list = new ArrayList<ProductsDto>();
+        var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
-            ProductsDto dto = new ProductsDto();
+            ProductDto dto = new ProductDto();
             dto.setId(resultSet.getInt("ProductId"));
             dto.setName(resultSet.getString("ProductName"));
             dto.setSupplier(resultSet.getInt("SupplierID"));
@@ -725,7 +725,7 @@ public class Controller13 {
             dto.setName(resultSet.getString("CustomerName"));
             dto.setCity(resultSet.getString("City"));
             dto.setCountry(resultSet.getString("Country"));
-            dto.setContactName(resultSet.getString("ContactName"));
+            dto.setContact(resultSet.getString("ContactName"));
             dto.setPostalCode(resultSet.getString("PostalCode"));
             dto.setAddress(resultSet.getString("Address"));
             list.add(dto);

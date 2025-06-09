@@ -10,5 +10,5 @@ public class CustomerDto {
     private String postalCode;
     private String city;
     private String country;
-    private String contactName;
+    private String contact;
 }
