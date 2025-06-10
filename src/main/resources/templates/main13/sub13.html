@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <style>
-    table, tr, td, th {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-  </style>
+    <style>
+        table, tr, td, th {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
+
 <h3>상품 목록</h3>
 <table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>NAME</th>
-    <th>SUPPLIER</th>
-    <th>CATEGORY</th>
-    <th>UNIT</th>
-    <th>PRICE</th></tr></thead>
-  <tbody>
-  <tr th:each="products : ${productList}">
-    <td th:text="${products.id}"></td>
-    <td th:text="${products.name}"></td>
-    <td th:text="${products.supplier}"></td>
-    <td th:text="${products.category}"></td>
-    <td th:text="${products.unit}"></td>
-    <td th:text="${products.price}"></td>
-  </tr></tbody>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Supplier</th>
+        <th>Category</th>
+        <th>Unit</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${productList}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.supplier}"></td>
+        <td th:text="${product.category}"></td>
+        <td th:text="${product.unit}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+    </tbody>
 </table>
 </body>
 </html>

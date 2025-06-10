@@ -12,4 +12,5 @@ public class SupplierDto {
     private String postalCode;
     private String country;
     private String phone;
+
 }

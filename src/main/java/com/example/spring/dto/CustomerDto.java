@@ -1,7 +1,7 @@
 package com.example.spring.dto;
 
 import lombok.Data;
-// main13/sub12
+
 @Data
 public class CustomerDto {
     private Integer id;
@@ -10,5 +10,5 @@ public class CustomerDto {
     private String postalCode;
     private String city;
     private String country;
-    private String contact;
+    private String contactName;
 }

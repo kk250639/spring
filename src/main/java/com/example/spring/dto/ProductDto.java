@@ -1,5 +1,6 @@
 package com.example.spring.dto;
 
+
 import lombok.Data;
 
 @Data
@@ -10,6 +11,4 @@ public class ProductDto {
     private Integer category;
     private String unit;
     private Double price;
-
-
 }

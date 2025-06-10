@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>상품 조회</title>
+    <title>Title</title>
     <style>
         table, tr, td, th {
             border: 1px solid blue;
@@ -15,38 +15,30 @@
 <h3>상품 목록</h3>
 
 <hr>
-<form th:action="@{/main13/sub18}">
+<form th:action="@{/main13/sub17}">
     <div>
         <label>
-            카테고리 번호:
+            카테고리 번호
             <input type="number" name="categoryId" min="1" max="8"
                    th:value="${param.categoryId ?: 1}">
         </label>
     </div>
     <div>
+
         <label>
-            최저 가격:
-            <input type="number" name="minPrice" min="0" step="0.01"
-                   th:value="${param.minPrice ?: 0.0}">
+            가격
+            <input type="number" name="price" min="0" , step="0.01"
+                   th:value="${param.price ?: 10.00}">
         </label>
     </div>
     <div>
-        <label>
-            최고 가격:
-            <input type="number" name="maxPrice" min="0" step="0.01"
-                   th:value="${param.maxPrice ?: 100.0}">
-        </label>
-    </div>
-    <div>
-        <button type="submit">조회</button>
+        <button>조회</button>
     </div>
 </form>
 <hr>
-
 <p th:if="${productList == null || productList.isEmpty()}">
     조회 결과가 없습니다.
 </p>
-
 <table th:if="${productList.size() > 0}">
     <thead>
     <tr>
@@ -69,6 +61,5 @@
     </tr>
     </tbody>
 </table>
-
 </body>
 </html>

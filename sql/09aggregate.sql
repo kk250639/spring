@@ -127,3 +127,5 @@ WHERE CategoryID = 1;
 SELECT AVG(Price)
 FROM Products
 WHERE CategoryID = 2;
+
+

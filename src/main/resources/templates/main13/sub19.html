@@ -21,7 +21,7 @@
         <select name="country">
             <option th:each="country : ${countryList}"
                     th:value="${country}"
-                    th:selected="${param.country[0] == country}"
+                    th:selected="${(param.country != null) && (param.country[0] == country)}"
                     th:text="${country}"></option>
         </select>
     </label>

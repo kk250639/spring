@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table, tr, th ,td {
+        table, tr, th, td {
             border-collapse: collapse;
             border: 1px solid black;
         }
@@ -13,13 +13,13 @@
 <body>
 <h3>미국, 영국 고객 목록</h3>
 <table>
-    <tehead>
-        <tr>
-            <th>국가</th>
-            <th>도시</th>
-            <th>이름</th>
-        </tr>
-    </tehead>
+    <thead>
+    <tr>
+        <th>국가</th>
+        <th>도시</th>
+        <th>이름</th>
+    </tr>
+    </thead>
     <tbody>
     <tr th:each="customer : ${customerList}">
         <td th:text="${customer.country}"></td>

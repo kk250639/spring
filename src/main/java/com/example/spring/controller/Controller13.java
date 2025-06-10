@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +28,7 @@ public class Controller13 {
         // 2.1 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         // 2.2 쿼리(sql) 실행
@@ -68,7 +65,7 @@ public class Controller13 {
         // 2.1 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """
@@ -95,7 +92,7 @@ public class Controller13 {
         // 2.1 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """
@@ -143,7 +140,7 @@ public class Controller13 {
         // 2.1 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """
@@ -178,35 +175,23 @@ public class Controller13 {
     // main13/sub5.html 에서 출력하기
     @GetMapping("sub5")
     public String sub5(Model model) throws Exception {
-        // 2.1 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
         String password = "@#DUSVLF3524";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """
-                SELECT CategoriName
+                SELECT CategoryName
                 FROM Categories
                 """;
-        // 실행준비
         PreparedStatement statement = connection.prepareStatement(sql);
-        // 실행
         ResultSet resultSet = statement.executeQuery();
-        // ResultSet :
-        //  table 형태의 결과
-        //  내부에 행(row)를 가리키는 커서가 있음
-        //  next() 호출하면 다음 행으로 커서를 이동
-        //  get...() : 컬럼 값을 얻는 메소드
-
         var list = new ArrayList<String>();
-
         while (resultSet.next()) {
-            String name = resultSet.getString("FirstName");
-
+            String name = resultSet.getString("CategoryName");
             list.add(name);
         }
-
-        model.addAttribute("nameList", list);
+        model.addAttribute("categoryList", list);
         return "main13/sub5";
     }
 
@@ -214,7 +199,7 @@ public class Controller13 {
     public String sub6(Model model) throws Exception {
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """
@@ -224,18 +209,21 @@ public class Controller13 {
                 """;
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
+
 //        var list = new ArrayList<String>();
 //        while (resultSet.next()) {
 //            String price = resultSet.getString("Price");
 //            list.add(price);
 //        }
+
         // 모든 데이터는 String으로 얻어 오는 것이 가능하지만
-        // 특별한 이유가 없다면 type에 맞는 get... 메소드 사용하자
+        // 특별한 이유가 없다면 type에 맞는 get... 메소드 사용하자.
         var list = new ArrayList<Double>();
         while (resultSet.next()) {
             double price = resultSet.getDouble("Price");
             list.add(price);
         }
+
         model.addAttribute("priceList", list);
         return "main13/sub6";
     }
@@ -243,7 +231,7 @@ public class Controller13 {
     // 연습 :
     // get /main13/sub7
     // OrderDetails 에서 수량(Quantity) 상위 5개 조회해서
-    // main13/sub7.html7 에서 보여주기
+    // main13/sub7.html 에서 보여주기
 
     @GetMapping("sub7")
     public String sub7(Model model) throws Exception {
@@ -253,9 +241,10 @@ public class Controller13 {
                 ORDER BY Quantity DESC
                 LIMIT 5
                 """;
+
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -276,9 +265,10 @@ public class Controller13 {
                 FROM Employees
                 """;
 
+
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -300,20 +290,20 @@ public class Controller13 {
     }
 
     // 연습
-    // get  /main13/sub9
-    // 고객테이블에서, 미국,영국에 사는 고객이름과 국가를 조회해서
+    // get /main13/sub9
+    // 고객테이블에서 미국,영국에 사는 고객이름과 국가를 조회해서
     // main13/sub9.html에서 출력
     @GetMapping("sub9")
     public String sub9(Model model) throws Exception {
         String sql = """
                 SELECT CustomerName, City, Country
                 FROM Customers
-                WHERE country IN ('usa', 'uk')
+                WHERE Country IN ('usa', 'uk')
                 ORDER BY Country, City
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -328,6 +318,7 @@ public class Controller13 {
             map.put("city", city);
             list.add(map);
         }
+
         model.addAttribute("customerList", list);
         return "main13/sub9";
     }
@@ -340,7 +331,7 @@ public class Controller13 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -349,34 +340,38 @@ public class Controller13 {
         while (resultSet.next()) {
             int productId = resultSet.getInt("ProductId");
             String productName = resultSet.getString("ProductName");
-            int supplierId = resultSet.getInt("SupplierID");
-            int CategoryId = resultSet.getInt("CategoryID");
+            int supplierID = resultSet.getInt("SupplierID");
+            int categoryID = resultSet.getInt("CategoryID");
             String unit = resultSet.getString("Unit");
             double price = resultSet.getDouble("Price");
 
             Map<String, Object> map = new HashMap<>();
             map.put("productId", productId);
             map.put("productName", productName);
-            map.put("supplierId", supplierId);
-            map.put("categoryId", CategoryId);
+            map.put("supplierID", supplierID);
+            map.put("categoryID", categoryID);
             map.put("unit", unit);
             map.put("price", price);
             list.add(map);
         }
+
         model.addAttribute("productList", list);
         return "main13/sub10";
     }
 
+    // 연습
+    // get /main13/sub11
+    // 모든 고객의 정보를 출력하는 코드 작성
+    // main13/sub11.html 에서.
     @GetMapping("sub11")
     public String sub11(Model model) throws Exception {
         String sql = """
                 SELECT *
                 FROM Customers
                 """;
-
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -400,7 +395,10 @@ public class Controller13 {
             map.put("country", country);
             map.put("postalCode", postalCode);
             list.add(map);
+
+
         }
+
         model.addAttribute("customerList", list);
         return "main13/sub11";
     }
@@ -413,7 +411,7 @@ public class Controller13 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -432,7 +430,7 @@ public class Controller13 {
             CustomerDto dto = new CustomerDto();
             dto.setId(customerID);
             dto.setName(customerName);
-            dto.setContact(contactName);
+            dto.setContactName(contactName);
             dto.setAddress(address);
             dto.setCity(city);
             dto.setPostalCode(postalCode);
@@ -443,13 +441,13 @@ public class Controller13 {
         model.addAttribute("customerList", list);
         return "main13/sub12";
     }
+
     // 연습
-    // dto. html, request handler method
+    // dto, html, request handler method
     // 모든 상품 조회, 출력
     // get /main13/sub13
     // main13/sub13.html
     // ProductDto
-
     @GetMapping("sub13")
     public String sub13(Model model) throws Exception {
         String sql = """
@@ -458,11 +456,10 @@ public class Controller13 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
-
         var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
             ProductDto dto = new ProductDto();
@@ -490,19 +487,20 @@ public class Controller13 {
         // 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         // 실행 준비
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        // PreparedStatement.execute...() : 쿼리 시행
+        // PreparedStatement.execute....() : 쿼리 실행
         // PreparedStatement.set...(index, value) : ? 채우는 메소드
         statement.setDouble(1, 20.00);
 
         // 실행
         ResultSet resultSet = statement.executeQuery();
 
+        // 결과 처리
         var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
             ProductDto dto = new ProductDto();
@@ -514,13 +512,11 @@ public class Controller13 {
             dto.setPrice(resultSet.getDouble("Price"));
             list.add(dto);
         }
-
-        // 결과 처리
         model.addAttribute("productList", list);
-        return "main13/sub14";
+        return "main13/sub13";
     }
 
-    //  /main13/sub15?pric=20.00
+    // /main13/sub15?price=10.00
     @GetMapping("sub15")
     public String sub15(Model model,
                         @RequestParam(defaultValue = "100.00")
@@ -535,19 +531,20 @@ public class Controller13 {
         // 연결
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         // 실행 준비
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        // PreparedStatement.execute...() : 쿼리 시행
+        // PreparedStatement.execute....() : 쿼리 실행
         // PreparedStatement.set...(index, value) : ? 채우는 메소드
         statement.setDouble(1, price);
 
         // 실행
         ResultSet resultSet = statement.executeQuery();
 
+        // 결과 처리
         var list = new ArrayList<ProductDto>();
         while (resultSet.next()) {
             ProductDto dto = new ProductDto();
@@ -559,14 +556,12 @@ public class Controller13 {
             dto.setPrice(resultSet.getDouble("Price"));
             list.add(dto);
         }
-
-        // 결과 처리
         model.addAttribute("productList", list);
         return "main13/sub15";
     }
 
-    // 연습
-    // 특정 카테고리 번호의 상품들 조회 후 출력
+    //    연습
+//    특정 카테고리 번호의 상품들 조회 후 출력
     // request handler method, html
     // get /main13/sub16
     // main13/sub16.html
@@ -580,10 +575,9 @@ public class Controller13 {
                 FROM Products
                 WHERE CategoryID = ?
                 """;
-
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, categoryId);
@@ -599,14 +593,16 @@ public class Controller13 {
             dto.setUnit(resultSet.getString("Unit"));
             dto.setPrice(resultSet.getDouble("Price"));
             list.add(dto);
+
         }
         model.addAttribute("productList", list);
         return "main13/sub16";
+
     }
 
     @GetMapping("sub17")
     public String sub17(
-            @RequestParam(defaultValue = "10.0")
+            @RequestParam(defaultValue = "10.00")
             Double price,
             @RequestParam(defaultValue = "1")
             Integer categoryId,
@@ -614,12 +610,13 @@ public class Controller13 {
         String sql = """
                 SELECT *
                 FROM Products
-                WHERE price < ?
-                AND CategoryID = ?
+                WHERE Price < ?
+                  AND CategoryID = ?
                 """;
+
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setDouble(1, price);
@@ -635,14 +632,17 @@ public class Controller13 {
             dto.setUnit(resultSet.getString("Unit"));
             dto.setPrice(resultSet.getDouble("Price"));
             list.add(dto);
+
         }
         model.addAttribute("productList", list);
+
+
         return "main13/sub17";
     }
 
     // 연습
-    // 특정 가격 사이의 상품들 조회, 출력 코드
-    // 낮은 가격~높은 가격
+    // 특정 가격 사이의 상품들 조회,출력 코드
+    // 낮은가격~높은가격
     // request handler method, html(main13/sub18.html)
     // get /main13/sub18
     //
@@ -661,7 +661,7 @@ public class Controller13 {
 
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setDouble(1, min);
@@ -681,6 +681,7 @@ public class Controller13 {
         }
         model.addAttribute("productList", list);
         return "main13/sub18";
+
     }
 
     @GetMapping("sub19")
@@ -700,7 +701,7 @@ public class Controller13 {
 
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         // 국가 조회
@@ -725,14 +726,20 @@ public class Controller13 {
             dto.setName(resultSet.getString("CustomerName"));
             dto.setCity(resultSet.getString("City"));
             dto.setCountry(resultSet.getString("Country"));
-            dto.setContact(resultSet.getString("ContactName"));
+            dto.setContactName(resultSet.getString("ContactName"));
             dto.setPostalCode(resultSet.getString("PostalCode"));
             dto.setAddress(resultSet.getString("Address"));
             list.add(dto);
         }
         model.addAttribute("customerList", list);
         return "main13/sub19";
+
     }
+
+    // 연습
+    // request handler method, SupplierDto, html(main13/sub20.html)
+    // 특정 국가에 있는 공급자들 조회
+    // get /main13/sub20
 
     @GetMapping("sub20")
     public String sub20(String country, Model model) throws Exception {
@@ -749,7 +756,7 @@ public class Controller13 {
 
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement1 = connection.prepareStatement(countrySql);
         ResultSet resultSet1 = statement1.executeQuery();
@@ -781,8 +788,3 @@ public class Controller13 {
         return "main13/sub20";
     }
 }
-
-    // 연습
-    // request handler method, SupplierDto, html
-    // 특정 국가에 있는 공급자를 조회
-    // get /main13/sub20

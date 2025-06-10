@@ -55,7 +55,9 @@
             이전
         </a>
         <a th:if="${param.keyword != null}"
-           th:href="@{/main15/sub3(page=${prevPage},keyword=${param.keyword})}"></a>
+           th:href="@{/main15/sub3(page=${prevPage},keyword=${param.keyword})}">
+            이전
+        </a>
         |
     </span>
 
@@ -77,7 +79,9 @@
             다음
         </a>
         <a th:if="${param.keyword != null}"
-           th:href="@{/main15/sub3(page=${nextPage},keyword=${param.keyword})}"></a>
+           th:href="@{/main15/sub3(page=${nextPage},keyword=${param.keyword})}">
+            다음
+        </a>
         |
     </span>
 </div>

@@ -79,7 +79,7 @@ public class Controller14 {
             CustomerDto customerDto = new CustomerDto();
             customerDto.setId(resultSet.getInt("CustomerId"));
             customerDto.setName(resultSet.getString("CustomerName"));
-            customerDto.setContact(resultSet.getString("ContactName"));
+            customerDto.setContactName(resultSet.getString("ContactName"));
             customerDto.setAddress(resultSet.getString("Address"));
             customerDto.setCity(resultSet.getString("City"));
             customerDto.setPostalCode(resultSet.getString("PostalCode"));
@@ -90,48 +90,5 @@ public class Controller14 {
         model.addAttribute("customerList", list);
 
         return "main14/sub2";
-    }
-
-
-    @RequestMapping("sub3")
-    public String sub3() {
-
-        return "main14/sub3";
-    }
-
-    @RequestMapping("sub4")
-    public String sub4() {
-
-        return "main14/sub4";
-    }
-
-    @RequestMapping("sub5")
-    public String sub5() {
-
-        return "main14/sub5";
-    }
-
-    @RequestMapping("sub6")
-    public String sub6() {
-
-        return "main14/sub6";
-    }
-
-    @RequestMapping("sub7")
-    public String sub7() {
-
-        return "main14/sub7";
-    }
-
-    @RequestMapping("sub8")
-    public String sub8() {
-
-        return "main14/sub8";
-    }
-
-    @RequestMapping("sub9")
-    public String sub9() {
-
-        return "main14/sub9";
     }
 }

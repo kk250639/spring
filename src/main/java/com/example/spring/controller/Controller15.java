@@ -66,7 +66,7 @@ public class Controller15 {
             customerDto.setPostalCode(rs.getString("PostalCode"));
             customerDto.setCity(rs.getString("City"));
             customerDto.setCountry(rs.getString("Country"));
-            customerDto.setContact(rs.getString("ContactName"));
+            customerDto.setContactName(rs.getString("ContactName"));
             customerDto.setName(rs.getString("CustomerName"));
             customerDto.setAddress(rs.getString("Address"));
             list.add(customerDto);
@@ -159,7 +159,7 @@ public class Controller15 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement countStmt = connection.prepareStatement(countSql);
         countStmt.setString(1, "%" + keyword + "%");
@@ -194,7 +194,7 @@ public class Controller15 {
             CustomerDto customerDto = new CustomerDto();
             customerDto.setId(rs2.getInt("CustomerID"));
             customerDto.setName(rs2.getString("CustomerName"));
-            customerDto.setContact(rs2.getString("ContactName"));
+            customerDto.setContactName(rs2.getString("ContactName"));
             customerDto.setAddress(rs2.getString("Address"));
             customerDto.setCity(rs2.getString("City"));
             customerDto.setPostalCode(rs2.getString("PostalCode"));
@@ -229,31 +229,32 @@ public class Controller15 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
-        PreparedStatement countStm = connection.prepareStatement(countSql);
-        countStm.setString(1, "%" + keyword + "%");
+        PreparedStatement countStmt = connection.prepareStatement(countSql);
+        countStmt.setString(1, "%" + keyword + "%");
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, "%" + keyword + "%");
         int offset = (page - 1) * 5;
         statement.setInt(2, offset);
         statement.setInt(3, 5);
 
-        ResultSet rs1 = countStm.executeQuery();
+        ResultSet rs1 = countStmt.executeQuery();
         rs1.next();
-        int count = rs1.getInt("count");
-        int lastPage = (count - 1) / 5 + 1; // 마지막 페이지
-        int rightPage = ((page - 1) / 10 + 1) * 10; // 오른쪽 페이지번호
-        int leftPage = rightPage - 9; // 왼쪽 페이지 번호
+        int count = rs1.getInt("count"); // 총 레코드 수
+        int lastPage = (count - 1) / 5 + 1; // 마지막 페이지 번호
+        int rightPage = ((page - 1) / 10 + 1) * 10;
+        int leftPage = rightPage - 9;
         int prevPage = leftPage - 10;
         int nextPage = rightPage + 1;
-        rightPage = Math.min(rightPage, lastPage); // 오른쪽 페이지번호는 마지막보다 클수없음
-        model.addAttribute("lastPage", lastPage); // 마지막 페이지
-        model.addAttribute("rightPage", rightPage);
+
+        rightPage = Math.min(rightPage, lastPage);
+
         model.addAttribute("leftPage", leftPage);
+        model.addAttribute("rightPage", rightPage);
         model.addAttribute("prevPage", prevPage);
         model.addAttribute("nextPage", nextPage);
-
+        model.addAttribute("lastPage", lastPage);
         ResultSet rs2 = statement.executeQuery();
         List<ProductDto> list = new ArrayList<>();
 
