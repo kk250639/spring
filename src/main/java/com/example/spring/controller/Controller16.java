@@ -144,7 +144,7 @@ public class Controller16 {
                     """;
             String url = "jdbc://localhost:3306/w3schools";
             String username = "root";
-            String password = "@#DUSVLF3524";
+            String password = "1234";
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
@@ -179,7 +179,7 @@ public class Controller16 {
 
         String url = "jdbc://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         stm.setInt(1, id);
@@ -203,7 +203,7 @@ public class Controller16 {
                     """;
             String url = "jdbc:mysql://localhost:3306/w3schools";
             String username = "root";
-            String password = "@#DUSVLF3524";
+            String password = "1234";
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
@@ -233,7 +233,7 @@ public class Controller16 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         stm.setInt(1, id);
@@ -254,7 +254,7 @@ public class Controller16 {
                     """;
             String url = "jdbc:mysql://localhost:3306/w3schools";
             String username = "root";
-            String password = "@#DUSVLF3524";
+            String password = "1234";
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
@@ -290,7 +290,7 @@ public class Controller16 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         stm.setString(1, dto.getName());
@@ -319,7 +319,7 @@ public class Controller16 {
                     """;
             String url = "jdbc:mysql://localhost:3306/w3schools";
             String username = "root";
-            String password = "@#DUSVLF3524";
+            String password = "1234";
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
@@ -355,7 +355,7 @@ public class Controller16 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         stm.setString(1, dto.getName());

@@ -177,7 +177,7 @@ public class Controller13 {
     public String sub5(Model model) throws Exception {
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         String sql = """

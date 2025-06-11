@@ -1,9 +1,12 @@
 package com.example.spring.practice;
 
+import com.example.spring.dto.ProductDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +26,7 @@ public class p01 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
@@ -47,7 +50,7 @@ public class p01 {
                 """;
         String url = "jdbc:mysql://localhost:3306/w3schools";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement stm = connection.prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
@@ -59,6 +62,7 @@ public class p01 {
         model.addAttribute("list", list);
         return "p01/sub2";
     }
+}
 
     //고객테이블에서 미국, 영국에 사는 고객이름과 국가를 조회
     //모든 고객의 정보를 출력
@@ -73,4 +77,30 @@ public class p01 {
     //새 공급자 등록 로직
     //삭제 로직
     //업데이트 로직
-}
+//    @GetMapping("sub15")
+//    public String select15(Integer id,Model model) throws Exception {
+//        String sql = """
+//                SELECT *
+//                FROM Products
+//                WHERE ProductID = ?
+//                """;
+//        String url = "jdbc:mysql://localhost:3306/w3schools";
+//        String username = "root";
+//        String password = "1234";
+//        Connection connection = DriverManager.getConnection(url, username, password);
+//        PreparedStatement stm = connection.prepareStatement(sql);
+//        stm.setInt(1, id);
+//        ResultSet rs = stm.executeQuery();
+//        while(rs.next()){
+//            ProductDto dto = new ProductDto();
+//            dto.setId(rs.getInt("ProductID"));
+//            dto.setName(rs.getString("ProductName"));
+//            dto.setSupplier(rs.getString(""));
+//        }
+//    }
+//
+//    @PostMapping("sub15")
+//    public String process15(Model model, RedirectAttributes) throws Exception {
+//        return "redirective:p01/sub15";
+//    }
+//}
