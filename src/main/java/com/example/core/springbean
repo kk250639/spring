@@ -1,0 +1,9 @@
+@Component
+@configuration + @Bean
+
+dependency injection
+field, setter, constructor
+
+final + @RequiredArgsContstructor
+
+Inversion Of Control (IOC)
