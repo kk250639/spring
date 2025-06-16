@@ -17,6 +17,16 @@ UPDATE 계좌_table
 SET money = money + 500
 WHERE user = 'b';
 
+######################
+USE mydatabase;
+CREATE TABLE 35elbat
+(
+    user VARCHAR(10),
+    money INT
+);
+INSERT INTO 35elbat
+(user, money) VALUES ('a',10000),('b',10000);
+###############################
 USE mydatabase;
 CREATE TABLE table53
 (
@@ -27,7 +37,15 @@ INSERT INTO table53
     (user, money)
 values ('a', 10000),
        ('b', 10000);
+########################################
+UPDATE 35elbat
+SET money = money - 500
+WHERE user = 'a';
 
+UPDATE 35elbat
+SET money = money + 500
+WHERE user = 'b';
+#########################################
 UPDATE table53
 SET money = money - 500
 WHERE user = 'a';

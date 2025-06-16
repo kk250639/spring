@@ -13,7 +13,7 @@ public class ConfigurationBean {
     public static void main(String[] args) {
         var context = SpringApplication.run(ConfigurationBean.class, args);
         Beanq bq = context.getBean(Beanq.class);
-        Object bean = context.getBean("makewbean");
+        Object bean = context.getBean("makewbean2");
         Beanw bw = bq.getBw();
         System.out.println(bean == bw);
         bq.walk();
@@ -27,10 +27,10 @@ class Cfgr {
     public Beanw makewbean() {
         return new Beanw();
     }
-    @Bean
-    public Beanw1 makewbean2() {
-        return new Beanw1();
-    }
+//    @Bean
+//    public Beanw1 makewbean2() {
+//        return new Beanw1();
+//    }
 }
 
 @Component

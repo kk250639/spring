@@ -29,7 +29,7 @@ public class Controller18 {
 
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -60,7 +60,7 @@ public class Controller18 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql1);
         statement.executeUpdate();
@@ -85,7 +85,7 @@ public class Controller18 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql1);
         statement.executeUpdate();
@@ -115,7 +115,7 @@ public class Controller18 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         connection.setAutoCommit(false);
         PreparedStatement statement = connection.prepareStatement(sql1);
@@ -144,7 +144,7 @@ public class Controller18 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
             try (connection) {
@@ -187,7 +187,7 @@ public class Controller18 {
 //
 //        String url = "jdbc:mysql://localhost:3306/mydatabase";
 //        String username = "root";
-//        String password = "@#DUSVLF3524";
+//        String password = "1234";
 //        Connection connection = DriverManager.getConnection(url, username, password);
 //        PreparedStatement statement = connection.prepareStatement(sql);
 //        ResultSet resultSet = statement.executeQuery();
@@ -219,7 +219,7 @@ public class Controller18 {
 //                """;
 //        String url = "jdbc:mysql://localhost:3306/mydatabase";
 //        String username = "root";
-//        String password = "@#DUSVLF3524";
+//        String password = "1234";
 //
 //        try (
 //                Connection connection = DriverManager.getConnection(url, username, password)
@@ -259,7 +259,7 @@ public class Controller18 {
 
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -291,7 +291,7 @@ public class Controller18 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
 
         try {
 

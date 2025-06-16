@@ -212,7 +212,7 @@ public class Controller17 {
                 """;
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
@@ -240,7 +240,7 @@ public class Controller17 {
 
         String url = "jdbc:mysql://localhost:3306/mydatabase";
         String username = "root";
-        String password = "@#DUSVLF3524";
+        String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, dto.getName());
