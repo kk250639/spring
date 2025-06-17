@@ -156,4 +156,9 @@ public class Controller20 {
         service2.process17(id);
         return "/main20/sub20";
     }
+    @GetMapping("sub21")
+    public String sub21(Integer id) {
+//        service2.process18(id);
+        return "/main20/sub21";
+    }
 }

@@ -3,6 +3,7 @@ package com.example.spring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "my_table15")
 @Getter
 @Setter
+@ToString
 public class Entity15 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

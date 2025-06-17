@@ -169,4 +169,7 @@ public class Service2 {
     public void process17(Integer id) {
         entity14Repository.deleteById(id);
     }
+    public void process18(Integer id) {
+//    Entity16 data = entity16Repository
+    }
 }
