@@ -95,24 +95,6 @@ create table my_table26
 );
 
 # foreign key (외래키, 참조키, FK)
-
-# create table my_table27
-# (
-#     id            int primary key,
-#     category_name varchar(30),
-#     info          varchar(1000)
-# );
-#
-# create table my_table28
-# (
-#     id           int primary key auto_increment,
-#     product_name varchar(30),
-#     price        int,
-#     unit         varchar(30),
-#     category_id  int not null,
-#     foreign key (category_id) references my_table27(id)
-# );
-# foreign key (외래키, 참조키, FK)
 CREATE TABLE my_table27
 (
     id            INT PRIMARY KEY AUTO_INCREMENT,

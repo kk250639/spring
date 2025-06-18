@@ -48,32 +48,29 @@ public class Controller25 {
         service7.action5(id);
         return "main25/sub5";
     }
+
+    // 주문 입력
     @GetMapping("sub6")
     public String sub6(Integer id) {
         service7.action6(id);
         return "main25/sub6";
     }
+
+    @GetMapping("sub7")
+    public String sub7(Integer id) {
+        service7.action7(id);
+        return "main25/sub7";
+    }
+
+    @GetMapping("sub8")
+    public String sub8(Integer id) {
+        service7.action8(id);
+        return "main25/sub8";
+    }
+
     @GetMapping("sub9")
     public String sub9(Integer id) {
         service7.action9(id);
         return "main25/sub9";
     }
-    // 주문 입력
-//    @GetMapping("sub6")
-//    public String sub6(Integer id) {
-//        service7.action6(id);
-//        return "main25/sub6";
-//    }
-//    //직원 조회
-//    @GetMapping("sub7")
-//    public String sub7(Integer id) {
-//        service7.action7(id);
-//        return "main25/sub7";
-//    }
-//    // 주문 조회
-//    @GetMapping("sub8")
-//    public String sub8(Integer id) {
-//        service7.action8(id);
-//        return "main25/sub8";
-//    }
 }

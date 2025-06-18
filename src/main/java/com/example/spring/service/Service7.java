@@ -163,6 +163,17 @@ public class Service7 {
 
     }
 
+
+    public void action7(Integer id) {
+        Entity29 e = entity29Repository.findById(id).get();
+        System.out.println("e = " + e);
+
+    }
+
+    public void action8(Integer id) {
+        Entity30 e2 = entity30Repository.findById(id).get();
+        System.out.println("e2 = " + e2);
+    }
     public void action9(Integer id) {
         Entity30 o = entity30Repository.findById(id).get();
 
@@ -173,61 +184,3 @@ public class Service7 {
         System.out.println("o.getEmployee() = " + o.getEmployee());
     }
 }
-
-//    public void action3(Integer id) {
-//        Entity27 entity27 = entity27Repository.findById(id).get();
-//        System.out.println("entity27 = " + entity27);
-//    }
-//
-//    public void action4(Integer id) {
-//        Entity28 entity28 = entity28Repository.findById(id).get();
-//        System.out.println("entity28 = " + entity28);
-//    }
-//    public void action5(Integer id) {
-//        Entity29 e1 = new Entity29();
-//        Entity29 e2 = new Entity29();
-//        Entity29 e3 = new Entity29();
-//
-//        e1.setFirstName("kim");
-//        e1.setLastName("java");
-//        e1.setBrithDate(LocalDate.of(2010,2,3));
-//        e2.setFirstName("kam");
-//        e2.setLastName("java");
-//        e2.setBrithDate(LocalDate.of(2010,3,5));
-//        e3.setFirstName("kum");
-//        e3.setLastName("java");
-//        e3.setBrithDate(LocalDate.of(2093,3,1));
-//
-//        entity29Repository.save(e1);
-//        entity29Repository.save(e2);
-//        entity29Repository.save(e3);
-//    }
-//    public void action6(Integer id) {
-//        Entity30 q1 = new Entity30();
-//        Entity30 q2 = new Entity30();
-//        Entity30 q3 = new Entity30();
-//
-//        q1.setInfo("f");
-//        q1.setOrderDate(LoclaDate.of(2031,2,3));
-//        q2.setInfo("w");
-//        q2.setOrderDate(LocalDate.now());
-//        q3.setInfo("e");
-//        q3.setOrderDate(LocalDate.now());
-//
-//        entity30Repository.save(q1);
-//        entity30Repository.save(q2);
-//        entity30Repository.save(q3);
-//    }
-//    public void action7(Integer id) {
-//        Entity29 entity29 = entity29Repository.findById(id).get();
-//        System.out.println("entity29 = " + entity29);
-//
-//    }
-//
-//    public void action8(Integer id) {
-//        Entity30 entity30 = entity30Repository.findById(id).get();
-//        System.out.println("entity30 = " + entity30);
-//    }
-//
-//
-//}
