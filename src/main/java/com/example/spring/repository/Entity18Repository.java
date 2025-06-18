@@ -2,6 +2,8 @@ package com.example.spring.repository;
 
 import com.example.spring.entity.Entity18;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -40,12 +42,23 @@ public interface Entity18Repository extends JpaRepository<Entity18, Integer> {
      */
     List<Entity18> findByCountryIn(List<String> country);
 
+
     // 연습
     // SELECT * FROM supplier WHERE county IN (?, ?, ?) ORDER BY supplier_name
-//    SELECT * FROM supplier WHERE supplier_name LIKE :keyword ORDER BY supplier_name DESC
+    List<Entity18> findByCountryInOrderBySupplierName(List<String> country);
+
+    //    SELECT * FROM supplier WHERE supplier_name LIKE :keyword ORDER BY supplier_name DESC
+    List<Entity18> findBySupplierNameContainsOrderBySupplierNameDesc(String supplierName);
+
     // query method 만들기
 
-    List<Entity18> findByCountryInOrderBySupplierName(List<String> Country);
+    void deleteByCountry(String country);
 
-    List<Entity18> findBySupplierNameContainsOrderBySupplierNameDesc(String keyword);
+
+    @Modifying
+    @Query("""
+            DELETE FROM Entity18 e
+            WHERE e.country = :country
+            """)
+    void deleteAllByCountry(String country);
 }

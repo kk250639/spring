@@ -1,6 +1,6 @@
 package com.example.spring.controller;
 
-import com.example.spring.service.Sevice4;
+import com.example.spring.service.Service4;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 @RequestMapping("main22")
 public class Controller22 {
-    private final Sevice4 service4;
+    private final Service4 service4;
 
 
     @GetMapping("sub1")
@@ -61,10 +61,5 @@ public class Controller22 {
         // 총페이지 수, 총 레코드 수 출력
         service4.action7(page);
         return "main22/sub7";
-    }
-    @GetMapping("sub8")
-    public String sub8() {
-        service4.action8();
-        return "main22/sub8";
     }
 }

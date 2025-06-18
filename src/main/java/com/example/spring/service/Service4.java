@@ -3,9 +3,7 @@ package com.example.spring.service;
 import com.example.spring.entity.Entity16;
 import com.example.spring.entity.Entity19;
 import com.example.spring.repository.Entity16Repository;
-import com.example.spring.repository.Entity18Repository;
 import com.example.spring.repository.Entity19Repository;
-import jakarta.persistence.Entity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class Sevice4 {
+public class Service4 {
     private final Entity16Repository entity16Repository;
     private final Entity19Repository entity19Repository;
 
@@ -91,7 +89,9 @@ public class Sevice4 {
         System.out.println("totalPages = " + totalPages);
         System.out.println("totalElements = " + totalElements);
 
-        content1.forEach(entity16 -> {System.out.println(entity16);});
+        content1.forEach(entity16 -> {
+            System.out.println(entity16);
+        });
 
     }
 
@@ -108,25 +108,4 @@ public class Sevice4 {
         content1.forEach(entity19 -> System.out.println(entity19));
 
     }
-
-    public void action8() {
-        entity19Repository.findByPrice
-    }
-
-//    public void action6() {
-//        List<Entity?> list4 = entity?Repository
-//                .findAll(Pagement.of(1 - 1, 10, sort.by("")))
-//                .getContent();
-//        for (Entity? entity? : list4) {
-//            System.out.println(entity);
-//        }
-//    }
-//    public void action6() {
-//        List<Entity?> list4 = entity?Repository
-//                .findAll(Pagement.of(1 - 1, 10, sort.by("")))
-//                .getContent();
-//        for (Entity? entity? : list4) {
-//            System.out.println(entity);
-//        }
-//    }
 }
